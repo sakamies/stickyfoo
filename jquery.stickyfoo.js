@@ -1,6 +1,8 @@
 /*
 Sticky footer plugin for jQuery
 Run on window.load instead of domready, in case any loading images change the page dimensions after domready.
+
+by Ville V. Vanninen / http://foolproof.me
 */
 
 (function($) {
@@ -17,20 +19,21 @@ Run on window.load instead of domready, in case any loading images change the pa
       $footer_elm.removeClass(options.class);
     }
 
-    $footer_elm.data('stickyFooter', 'initialized');
+    var stickyfoo = '.' + $.fn.stickyfoo.defaults.NAMESPACE;
+    $footer_elm.data(stickyfoo, 'initialized');
   };
 
   var methods = {
     init : function (options) {
       //Settings list and the default values
-      var defaults = $.fn.stickyFooter.defaults;
+      var defaults = $.fn.stickyfoo.defaults;
       options = $.extend(defaults, options);
       methods.options = options;
 
-      var stickyfoo = '.' + $.fn.stickyFooter.defaults.NAMESPACE;
+      var stickyfoo = '.' + $.fn.stickyfoo.defaults.NAMESPACE;
 
       return this.each(function(){
-        var data = $(this).data('stickyFooter');
+        var data = $(this).data(stickyfoo);
         // If the plugin hasn't been initialized on this element yet
         var $element = $(this);
         if (!data) {
@@ -51,7 +54,7 @@ Run on window.load instead of domready, in case any loading images change the pa
     },
     destroy: function () {
 
-      var stickyfoo = '.' + $.fn.stickyFooter.defaults.NAMESPACE;
+      var stickyfoo = '.' + $.fn.stickyfoo.defaults.NAMESPACE;
 
       return this.each(function(){
 
@@ -71,7 +74,7 @@ Run on window.load instead of domready, in case any loading images change the pa
     } else if (typeof method === 'object' || ! method) {
       return methods.init.apply(this, arguments);
     } else {
-      $.error('Method ' +  method + ' does not exist on jQuery.stickyFooter');
+      $.error('Method ' +  method + ' does not exist on jQuery.stickyfoo');
     }
   };
   $.fn.stickyfoo.defaults = {

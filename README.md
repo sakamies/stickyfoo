@@ -20,3 +20,7 @@ Basic boilerplate css is included in stickyfoo.css:
         position: absolute;
         bottom: 0px;
     }
+
+Feedback
+---
+Tweet <a href="http://twitter.com/sakamies">@sakamies</a>
