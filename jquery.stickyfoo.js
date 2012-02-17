@@ -27,6 +27,8 @@ Run on window.load instead of domready, in case any loading images change the pa
       options = $.extend(defaults, options);
       methods.options = options;
 
+      var stickyfoo = '.' + $.fn.stickyFooter.defaults.NAMESPACE;
+
       return this.each(function(){
         var data = $(this).data('stickyFooter');
         // If the plugin hasn't been initialized on this element yet
@@ -34,11 +36,11 @@ Run on window.load instead of domready, in case any loading images change the pa
         if (!data) {
           updateFooter($element, options);
         }
-        $(window).bind('resize.stickyFooter', function(event) {
+        $(window).bind('resize'+stickyfoo, function(event) {
           updateFooter($element, options);
         });
         //scroll event in case of lazy loading content (which sucks btw)
-        $(window).bind('scroll.stickyFooter', function(event) {
+        $(window).bind('scroll'+stickyfoo, function(event) {
           updateFooter($element, options);
         });
       });
@@ -49,13 +51,15 @@ Run on window.load instead of domready, in case any loading images change the pa
     },
     destroy: function () {
 
+      var stickyfoo = '.' + $.fn.stickyFooter.defaults.NAMESPACE;
+
       return this.each(function(){
 
         var $this = $(this),
-        data = $this.data('stickyFooter');
+        data = $this.data(stickyfoo);
 
-        $(window).unbind('.stickyFooter');
-        $this.removeData('stickyFooter');
+        $(window).unbind(stickyfoo);
+        $this.removeData(stickyfoo);
         $this.removeClass(methods.options.class);
       });
     }
@@ -71,11 +75,8 @@ Run on window.load instead of domready, in case any loading images change the pa
     }
   };
   $.fn.stickyfoo.defaults = {
-    class: 'sticky'
+    class: 'sticky',
+    NAMESPACE: 'stickyfoo'
   };
 
   })( jQuery );
-
-  jQuery(window).load(function() {
-    jQuery('.site-footer').stickyfoo();
-  });
