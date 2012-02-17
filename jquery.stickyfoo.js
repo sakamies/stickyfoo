@@ -61,7 +61,7 @@ Run on window.load instead of domready, in case any loading images change the pa
 		}
 	};
 
-	$.fn.stickyFooter = function( method ) {
+	$.fn.stickyfoo = function( method ) {
 		if (methods[method]) {
 			return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
 		} else if (typeof method === 'object' || ! method) {
@@ -70,12 +70,12 @@ Run on window.load instead of domready, in case any loading images change the pa
 			$.error('Method ' +  method + ' does not exist on jQuery.stickyFooter');
     	};
 	};
-	$.fn.stickyFooter.defaults = {
+	$.fn.stickyfoo.defaults = {
 		class: 'sticky'
 	}
 	
 })( jQuery );
 
 jQuery(window).load(function() {
-	jQuery('.site-footer').stickyFooter();
+	jQuery('.site-footer').stickyfoo();
 });
