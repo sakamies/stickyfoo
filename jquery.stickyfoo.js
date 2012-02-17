@@ -9,8 +9,11 @@ by Ville V. Vanninen / http://foolproof.me
 
   var updateFooter = function ($footer_elm, options) {
     var window_height = jQuery(window).height();
+    var body_offset = jQuery('body').offset().top;
+    //TODO: figure out how paddings and margins on the body and footer affect calculations
     var body_height = jQuery('body').outerHeight();
-    var footer_height = $footer_elm.outerHeight();
+    console.log('body.outerHeight: ' + body_height);
+    var footer_height = $footer_elm.outerHeight(true);
 
     if (!$footer_elm.hasClass(options.class) && window_height > body_height) {
       $footer_elm.addClass(options.class);
@@ -32,7 +35,7 @@ by Ville V. Vanninen / http://foolproof.me
 
       var stickyfoo = '.' + $.fn.stickyfoo.defaults.NAMESPACE;
 
-      return this.each(function(){
+      return this.each(function(index){
         var data = $(this).data(stickyfoo);
         // If the plugin hasn't been initialized on this element yet
         var $element = $(this);

@@ -3,16 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <title></title>
+  <link rel="stylesheet" href="stickyfoo.css">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
-  <script type="jquery.stickyfoo.js"></script>
+  <script src="jquery.stickyfoo.js"></script>
   <script type="text/javascript">
-    $('footer').stickyfoo();
+    $(window).load(function() {
+      console.log("$('#footer').stickyfoo();");
+      $('#footer').stickyfoo();
+    });
   </script>
+  <style type="text/css">
+    body {
+      font-size: 12px;
+      outline: 1px solid red;
+      padding: 20px;
+      margin: 10px;
+    }
+    #wrap, #footer {
+      outline: 1px solid orange;
+      padding: 30px;
+      background: ;
+    }
+  </style>
 </head>
 <body>
-  <h1>Stickyfoo Test Page</h1>
-  <footer>
-    Footer
-  </footer>
+  <div id="wrap">
+    <h1>Stickyfoo: Semantic Sticky Footer Plugin for jQuery</h1>
+    <p>Here’s a footer:</p>
+    <pre><code>&lt;footer id="footer"&gt;&lt;/footer&gt;
+    </code></pre>
+    <p>Make it sticky:</p>
+    <pre><code>$('#footer').stickyfoo();
+    </code></pre>
+    <p>When there’s room at the bottom, the footers gets a class:</p>
+    <pre><code>&lt;footer class="sticky" id="site-footer"&gt;&lt;/footer&gt;
+    </code></pre>
+    <p>When there’s no room (when you need to scroll), it’s just your footer as you styled it.</p>
+    <p>Basic boilerplate css is included in stickyfoo.css:</p>
+    <pre><code>#footer.sticky {
+        position: absolute;
+        bottom: 0px;
+    }
+    </code></pre>
+  </div>
+  <div id="footer">
+    <h2>Feedback</h2>
+    <p>Tweet <a href="http://twitter.com/sakamies">@sakamies</a></p>
+  </div>
 </body>
 </html>

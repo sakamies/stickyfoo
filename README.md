@@ -21,6 +21,10 @@ Basic boilerplate css is included in stickyfoo.css:
         bottom: 0px;
     }
 
+Beware Collapsing Margins
+---
+The caveat here is that margins may bleed outside the body element, and I don't know of any way to measure the body height with collapsing margins included.
+
 Feedback
 ---
 Tweet <a href="http://twitter.com/sakamies">@sakamies</a>
