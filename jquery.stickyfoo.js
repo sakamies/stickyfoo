@@ -24,7 +24,7 @@ by Ville V. Vanninen / http://foolproof.me
       $footer_elm.removeClass(options.class);
     }
 
-    var stickyfoo = '.' + $.fn.stickyfoo.defaults.NAMESPACE;
+    var stickyfoo = $.fn.stickyfoo.defaults.NAMESPACE;
     $footer_elm.data(stickyfoo, 'initialized');
   };
 
@@ -35,7 +35,7 @@ by Ville V. Vanninen / http://foolproof.me
       options = $.extend(defaults, options);
       methods.options = options;
 
-      var stickyfoo = '.' + $.fn.stickyfoo.defaults.NAMESPACE;
+      var stickyfoo = $.fn.stickyfoo.defaults.NAMESPACE;
 
       return this.each(function(index){
         var data = $(this).data(stickyfoo);
@@ -44,11 +44,11 @@ by Ville V. Vanninen / http://foolproof.me
         if (!data) {
           updateFooter($element, options);
         }
-        $(window).bind('resize'+stickyfoo, function(event) {
+        $(window).bind('resize.'+stickyfoo, function(event) {
           updateFooter($element, options);
         });
         //scroll event in case of lazy loading content (which sucks btw)
-        $(window).bind('scroll'+stickyfoo, function(event) {
+        $(window).bind('scroll.'+stickyfoo, function(event) {
           updateFooter($element, options);
         });
       });
@@ -59,14 +59,14 @@ by Ville V. Vanninen / http://foolproof.me
     },
     destroy: function () {
 
-      var stickyfoo = '.' + $.fn.stickyfoo.defaults.NAMESPACE;
+      var stickyfoo = $.fn.stickyfoo.defaults.NAMESPACE;
 
       return this.each(function(){
 
         var $this = $(this),
         data = $this.data(stickyfoo);
 
-        $(window).unbind(stickyfoo);
+        $(window).unbind('.' + stickyfoo);
         $this.removeData(stickyfoo);
         $this.removeClass(methods.options.class);
       });
