@@ -8,12 +8,14 @@
   <script src="jquery.stickyfoo.js"></script>
   <script type="text/javascript">
     $(window).load(function() {
-      console.log("$('#footer').stickyfoo();");
-      $('#footer').stickyfoo();
+        //TODO: Figure out why the first run of stickyfoos updateFooter() results in different geometry for the body than the second run triggered by $(window).scroll();
+        $('#footer').stickyfoo();
+        $(window).scroll();
     });
   </script>
   <style type="text/css">
     body {
+      border: 5px dotted rgba(0,0,0,.5);
       font-size: 12px;
       outline: 1px solid red;
       padding: 20px;

@@ -8,17 +8,20 @@ by Ville V. Vanninen / http://foolproof.me
 (function($) {
 
   var updateFooter = function ($footer_elm, options) {
+    //TODO: doublecheck and test calculations with different margins and paddings
     var window_height = jQuery(window).height();
-    var body_offset = jQuery('body').offset().top;
-    //TODO: figure out how paddings and margins on the body and footer affect calculations
-    var body_height = jQuery('body').outerHeight();
-    console.log('body.outerHeight: ' + body_height);
+    var body_offset_top = jQuery('body').offset().top;
+    var body_outer_height = jQuery('body').outerHeight();
+    var body_height = jQuery('body').height();
+    body_bottom = (body_offset_top + body_outer_height) - ((body_outer_height - body_height)/2);
+    console.log(body_bottom);
     var footer_height = $footer_elm.outerHeight(true);
 
-    if (!$footer_elm.hasClass(options.class) && window_height > body_height) {
+
+    if (!$footer_elm.hasClass(options.class) && window_height > body_bottom) {
       $footer_elm.addClass(options.class);
     }
-    else if ($footer_elm.hasClass(options.class) && window_height < body_height + footer_height) {
+    else if ($footer_elm.hasClass(options.class) && window_height < body_bottom + footer_height + 1) {
       $footer_elm.removeClass(options.class);
     }
 
