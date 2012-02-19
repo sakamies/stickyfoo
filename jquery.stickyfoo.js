@@ -14,7 +14,6 @@ by Ville V. Vanninen / http://foolproof.me
     var body_outer_height = jQuery('body').outerHeight();
     var body_height = jQuery('body').height();
     body_bottom = (body_offset_top + body_outer_height) - ((body_outer_height - body_height)/2);
-    console.log(body_bottom);
     var footer_height = $footer_elm.outerHeight(true);
 
 
