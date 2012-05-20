@@ -15,40 +15,43 @@
   </script>
   <style type="text/css">
     body {
-      border: 5px dotted rgba(0,0,0,.5);
-      font-size: 12px;
-      outline: 1px solid red;
-      padding: 20px;
-      margin: 10px;
+      color: black;
+      background: white;
     }
     #wrap, #footer {
-      outline: 1px solid orange;
-      padding: 30px;
-      background: ;
+      padding: 1px 30px 30px 30px;
+    }
+    #wrap {
+      background: #eee;
+    }
+    #footer {
+      background: #ddd;
+    }
+    em {
+      font-style: normal;
+      background: hsl(60, 100%, 70%);
     }
   </style>
 </head>
 <body>
   <div id="wrap">
+    <p><small>#wrap</small></p>
     <h1>Stickyfoo: Semantic Sticky Footer Plugin for jQuery</h1>
-    <p>Here’s the footer element:</p>
-    <pre><code>&lt;footer id="footer"&gt;&lt;/footer&gt;
-    </code></pre>
+    <p>Here's the footer:</p>
+
+    <pre><code>&lt;footer id="site-footer"&gt;&lt;/footer&gt;</code></pre>
+
     <p>Make it sticky:</p>
-    <pre><code>$('#footer').stickyfoo();
-    </code></pre>
-    <p>When there’s room at the bottom, the footers gets a class:</p>
-    <pre><code>&lt;footer class="sticky" id="site-footer"&gt;&lt;/footer&gt;
-    </code></pre>
-    <p>When there’s no room (when you need to scroll), it’s just your footer as you styled it.</p>
-    <p>Basic boilerplate css is included in stickyfoo.css:</p>
-    <pre><code>#footer.sticky {
-        position: absolute;
-        bottom: 0px;
-    }
-    </code></pre>
+
+    <pre><code>$('#footer').stickyfoo();</code></pre>
+
+    <p>When there's room at the bottom, the footers gets a class:</p>
+
+    <pre><code>&lt;footer class="site-footer <em>sticky</em>"&gt;&lt;/footer&gt;</code></pre>
+    
   </div>
   <div id="footer">
+    <p><small>#footer</small></p>
     <h2>Feedback</h2>
     <p>Tweet <a href="http://twitter.com/sakamies">@sakamies</a></p>
   </div>
