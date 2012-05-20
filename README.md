@@ -6,10 +6,12 @@ A semantic sticky footer plugin for jQuery
 Usage
 ---
 
-Here's a footer:
+Here's the footer:
 
 ```
-  <footer id="site-footer"></footer>
+  <footer>
+    <p>Yep</p>
+  </footer>
 ```
 
 Make it sticky:
@@ -21,7 +23,9 @@ Make it sticky:
 When there's room at the bottom, the footers gets a class:
 
 ```
-  <footer class="site-footer sticky"></footer>
+  <footer class="sticky">
+    <p>Yep</p>
+  </footer>
 ```
 
 When there's no room (when the document is longer than the viewport), it's just your footer as you styled it.

@@ -8,7 +8,6 @@ by Ville V. Vanninen / http://foolproof.me
 (function($) {
 
   var updateFooter = function ($footer_elm, options) {
-    //TODO: doublecheck and test calculations with different margins and paddings
     var window_height = jQuery(window).height();
     var body_offset_top = jQuery('body').offset().top;
     var body_outer_height = jQuery('body').outerHeight();
