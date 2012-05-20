@@ -33,7 +33,7 @@ When there's no room (when the document is longer than the viewport), it's just 
 Basic boilerplate css is included in stickyfoo.css:
 
 ```
-  .site-footer.sticky {
+  .sticky {
     position: absolute;
     bottom: 0px;
   }
