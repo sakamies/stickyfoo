@@ -1,5 +1,7 @@
-Stickyfoo: Semantic Sticky Footer Plugin for jQuery
+Stickyfoo
 ===
+
+A semantic sticky footer plugin for jQuery
 
 Usage
 ---
