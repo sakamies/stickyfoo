@@ -6,26 +6,36 @@ A semantic sticky footer plugin for jQuery
 Usage
 ---
 
-Here's the footer:
+First off, remember to include all the necessities in your html:
 
 ```
-  <footer>
-    <p>Yep</p>
-  </footer>
+<link rel="stylesheet" href="http://webbies.ca/golflife/css/stickyfoo.css">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="js/stickyfoo.js"></script>
 ```
 
-Make it sticky:
+Here's a footer:
 
 ```
+<footer id="footer">
+  <p>Yep</p>
+</footer>
+```
+
+Make it sticky when the document is ready:
+
+```
+$(document).ready(function() {
   $('#footer').stickyfoo();
+});
 ```
 
 When there's room at the bottom, the footers gets a class:
 
 ```
-  <footer class="sticky">
-    <p>Yep</p>
-  </footer>
+<footer class="sticky" id="footer">
+  <p>Yep</p>
+</footer>
 ```
 
 When there's no room (when the document is longer than the viewport), it's just your footer as you styled it.
@@ -33,10 +43,10 @@ When there's no room (when the document is longer than the viewport), it's just 
 Basic boilerplate css is included in stickyfoo.css:
 
 ```
-  .sticky {
-    position: absolute;
-    bottom: 0px;
-  }
+.sticky {
+  position: absolute;
+  bottom: 0px;
+}
 ```
 
 Beware of Collapsing Margins
